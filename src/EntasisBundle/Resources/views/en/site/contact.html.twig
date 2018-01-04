@@ -1,0 +1,85 @@
+{% extends '@Entasis/en/base.html.twig' %}
+
+{% block content %}
+    <section id="contact" class="section page">
+        <div class="container">
+
+            <div class="desktop-6 tablet-12 columns">
+
+                <h2 class="border-top">Contacts</h2>
+                <p class="title-desc">Here you can find us</p>
+
+                {% for message in app.flashes('success') %}
+                    <div class="flash-notice">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+
+
+                {{ form_start(form, {'attr': {'id': 'contactForm'}}) }}
+                <div class="form-group field-sendletterform-name required">
+                    {{ form_row(form.name) }}
+                    <div class="help-block"></div>
+                </div>
+                <div class="form-group field-sendletterform-email required">
+                    {{ form_row(form.email) }}
+                    <div class="help-block"></div>
+                </div>
+                <div class="form-group field-sendletterform-message required">
+                    {{ form_row(form.message) }}
+                    <div class="help-block"></div>
+                </div>
+                <button type="submit" class="button full">Отправить</button>
+                {{ form_end(form) }}
+
+                <div class="clear"></div>
+
+            </div><!-- // .desktop-6 -->
+
+
+            <div class="desktop-6 tablet-12 nested columns">
+
+                <div class="desktop-6 tablet-12 columns">
+                    <h2 class="border-top">We are on the map</h2>
+                    <p class="title-desc">In the heart of Zaslavl</p>
+
+                    <div id="map">
+                        <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aa892e8fde89e537c6e90142f2c11d39d43016f329bc9dba04c59dbe06a17e1e3&amp;width=100%25&amp;height=500&amp;lang=ru_RU&amp;scroll=true"></script>
+                    </div>
+                </div><!-- // .desktop-6 -->
+
+                <div class="clear"></div>
+
+                <div class="desktop-3 tablet-6 mobile-half columns">
+
+                    <div class="box-contact">
+                        <h3 class="font-color-primary"><span class="underline">Adress</span></h3>
+
+                        <p>
+                            66 Turners Falls Rd <br />
+                            Turners Falls, MA 01376<br />
+                            (413) 863-1324
+                        </p>
+                    </div><!-- // .box-contact -->
+
+                </div><!-- // .desktop-3 -->
+
+                <div class="desktop-3 tablet-6 mobile-half columns">
+
+                    <div class="box-contact">
+                        <h3 class="font-color-primary"><span class="underline">Email</span></h3>
+
+                        <p>
+                            <a href="mailto:typebig@gmail.com">typebig@gmail.com</a>
+                        </p>
+                    </div><!-- // .box-contact -->
+
+                </div><!-- // .desktop-3 -->
+
+                <div class="clear"></div>
+
+            </div><!-- // .desktop-6 -->
+
+        </div><!-- // .container -->
+    </section><!-- // section#contact -->
+{% endblock %}

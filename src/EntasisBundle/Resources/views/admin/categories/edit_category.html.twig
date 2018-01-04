@@ -1,0 +1,7 @@
+{% extends '@Entasis/admin/index.html.twig' %}
+{% block body %}
+    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+    {{ form_widget(form) }}
+    <button type="submit" class="btn btn-primary">Редактировать</button>
+    {{ form_end(form) }}
+{% endblock %}

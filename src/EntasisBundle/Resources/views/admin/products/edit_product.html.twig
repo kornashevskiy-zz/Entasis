@@ -1,0 +1,23 @@
+{% extends '@Entasis/admin/index.html.twig' %}
+{% block body %}
+    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+    {{ form_row(form.ruName) }}
+    {{ form_row(form.ruDescription) }}
+    {{ form_row(form.enName) }}
+    {{ form_row(form.enDescription) }}
+    {{ form_row(form.category) }}
+    {{ form_row(form.titleImage) }}
+    {{ form_row(form.hiddenImage) }}
+    <div class="titleImage">
+        <img src="{{ product.hiddenImage }}" alt="">
+    </div>
+    {{ form_row(form.images) }}
+    {{ form_row(form.hiddenImages) }}
+    <div class="multiImages">
+        {% for image in product.hiddenImages|json_decode %}
+            <img src="{{ image }}" alt="">
+        {% endfor %}
+    </div>
+    <button type="submit" class="btn btn-primary">Редактировать</button>
+    {{ form_end(form) }}
+{% endblock %}

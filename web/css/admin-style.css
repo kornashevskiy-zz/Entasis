@@ -1,0 +1,14 @@
+img {
+    width: 200px;
+    height: auto;
+}
+button, table {
+    margin: 20px 0;
+}
+.no-margin {
+    margin: 0;
+}
+td.images img {
+    width: 50px;
+    height: auto;
+}

@@ -1,0 +1,30 @@
+services:
+    EntasisBundle\Service\EventListener\RequestListener:
+        autowire: true
+        tags:
+            - { name: kernel.event_listener, event: kernel.request }
+    EntasisBundle\Controller\Admin\CategoryController:
+        autowire: true
+    EntasisBundle\Controller\Admin\ProductController:
+        autowire: true
+    EntasisBundle\Controller\DefaultController:
+        autowire: true
+    EntasisBundle\Service\FileUpload\ProductFileUploader:
+        arguments:
+            $targetDirPath: '/../../../../web/images'
+            $targetDirName: '/images'
+            $width: 600
+            $height: 340
+    EntasisBundle\Service\EventListener\ProductListener:
+        autowire: true
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: preUpdate }
+            - { name: doctrine.event_listener, event: preRemove }
+    twig.json.decode:
+        class: EntasisBundle\Twig\Extension\JsonDecode
+        tags:
+            - { name: twig.extension }
+    contact.mailer:
+        class: EntasisBundle\Service\Email\ContactMailer
+        autowire: true

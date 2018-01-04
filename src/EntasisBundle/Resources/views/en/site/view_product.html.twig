@@ -1,0 +1,66 @@
+{% extends '@Entasis/en/base.html.twig' %}
+
+{% block content %}
+    <section id="works" class="page single">
+        <div class="container">
+
+            <div class="desktop-3 push-9 tablet-12 tablet-push-0 nested columns">
+
+                <div class="sidebar sticky">
+
+                    <div class="desktop-3 tablet-12 columns">
+
+                        <div class="box-info">
+                            <h3 class="border-top">{{ product.enName }}</h3>
+
+                            <p>{{ product.enDescription|raw }}</p>
+                        </div><!-- // .box-info -->
+
+                    </div><!-- // .desktop-3 -->
+
+                    <div class="clear"></div>
+
+                    <div class="desktop-3 tablet-6 mobile-half columns">
+
+                        <div class="box-info">
+                            <h4 class="border-top">Category</h4>
+                            <p>
+                                <a href="{{ path('product_by_category', {'category': product.category.enName}) }}">{{ product.category.enName }}</a>
+                            </p>
+                        </div><!-- // .box-info -->
+
+                    </div><!-- // .desktop-3 -->
+
+                    {#<div class="clear hide-under-tablet"></div>#}
+
+                    {#<div class="desktop-3 tablet-6 mobile-half columns">#}
+
+                        {#<div class="box-info">#}
+                            {#<h4 class="border-top">Client</h4>#}
+                            {#<p>Barneys</p>#}
+                        {#</div><!-- // .box-info -->#}
+
+                    {#</div><!-- // .desktop-3 -->#}
+
+                    <div class="clear"></div>
+
+                </div><!-- // .sticky -->
+
+            </div><!-- // .desktop-3 -->
+
+            <div class="clear show-under-tablet"></div>
+
+            <div class="desktop-9 pull-3 tablet-12 tablet-pull-0 columns">
+
+                {% for image in product.images|json_decode %}
+                    <img src="{{ image }}" alt="Картинка">
+                {% endfor %}
+
+            </div><!-- // .desktop-9 -->
+
+            <div class="clear"></div>
+
+        </div><!-- // .container -->
+    </section><!-- // section -->
+
+{% endblock %}

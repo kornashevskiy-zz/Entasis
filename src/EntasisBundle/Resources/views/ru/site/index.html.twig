@@ -1,0 +1,79 @@
+{% extends '@Entasis/ru/base.html.twig' %}
+
+{% block content %}
+
+    {% for product in pagination %}
+        <a href="{{ path('view_product', {'id': product.id}) }}" class="permalink">
+            <div class="desktop-6 columns">
+                <div class="item" id="testImage">
+                    <img src="{{ product.titleImage }}" alt="Картинка" />
+
+                    <h3>{{ product.ruName }}</h3>
+                    <span class="category">{{ product.category.ruName }}</span>
+                </div><!-- // .item -->
+            </div><!-- // .desktop-6 -->
+        </a>
+
+        {% if loop.index % 2 == 0 %}
+            <div class="clear"></div>
+        {% endif %}
+    {% endfor %}
+
+    <div class="desktop-12 columns">
+
+        <div class="nav-pages">
+
+            {% if page != null and page != 1 %}
+                <a href="/?page={{ page - 1 }}" title="Previous" class="link-prev">
+                    <div>
+                        <span>Назад</span>
+                    </div>
+                </a><!-- // .link-prev -->
+            {% else %}
+                <a title="Previous" class="link-prev">
+                    <div>
+                        <span>Назад</span>
+                    </div>
+                </a><!-- // .link-prev -->
+            {% endif %}
+
+
+            {% if pagination.getTotalItemCount > 10 %}
+                {% if page != null %}
+
+
+                    {% if 10 * page < pagination.getTotalItemCount %}
+                        <a href="/?page={{ page + 1 }}" title="Next" class="link-next">
+                            <div>
+                                <span>Вперёд</span>
+                            </div>
+                        </a><!-- // .link-next -->
+                    {% else %}
+                        <a title="Next" class="link-next">
+                            <div>
+                                <span>Вперёд</span>
+                            </div>
+                        </a><!-- // .link-next -->
+                    {% endif %}
+
+
+                {% else %}
+                    <a href="/?page=2" title="Next" class="link-next">
+                        <div>
+                            <span>Вперёд</span>
+                        </div>
+                    </a><!-- // .link-next -->
+                {% endif %}
+            {% else %}
+                <a title="Next" class="link-next">
+                    <div>
+                        <span>Вперёд</span>
+                    </div>
+                </a><!-- // .link-next -->
+            {% endif %}
+
+
+            <div class="clear"></div>
+        </div><!-- // .nav-pages -->
+    </div><!-- // .desktop-12 -->
+{% endblock %}

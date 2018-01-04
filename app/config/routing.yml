@@ -1,0 +1,30 @@
+entasis:
+    resource: "@EntasisBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+#app:
+#    resource: '@AppBundle/Controller/'
+#    type: annotation
+
+home:
+    path:     /{_locale}
+    defaults: { _controller: EntasisBundle:Default:index }
+    requirements:
+        _locale: en|ru
+contact_action:
+    path: /{_locale}/contact
+    defaults: { _controller: EntasisBundle:Default:contactPage }
+    requirements:
+        _locale: en|ru
+product_by_category:
+    path: /{_locale}/{category}
+    defaults: { _controller: EntasisBundle:Default:productByCategory }
+    requirements:
+        _locale: en|ru
+view_product:
+    path: /{_locale}/product/{id}
+    defaults: { _controller: EntasisBundle:Default:viewProduct }
+    requirements:
+        _locale: en|ru
+
