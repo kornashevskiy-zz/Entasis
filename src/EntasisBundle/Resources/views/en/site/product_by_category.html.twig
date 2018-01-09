@@ -1,5 +1,8 @@
 {% extends '@Entasis/en/base.html.twig' %}
 
+{% block title %}{{ category }}{% endblock %}
+{% block logo_h1 %}{{ category }}{% endblock %}
+
 {% block content %}
     {% for product in pagination %}
         <a href="{{ path('view_product', {'_locale': 'en', 'id': product.id}) }}" class="permalink">

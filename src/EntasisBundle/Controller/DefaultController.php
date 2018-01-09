@@ -68,7 +68,8 @@ class DefaultController extends Controller
         return $this->render('@Entasis/'.$location.'/site/product_by_category.html.twig', [
             'categories' => $this->categories,
             'pagination' => $pagination,
-            'page' => $request->get('page')
+            'page' => $request->get('page'),
+            'category' => $category
         ]);
     }
 

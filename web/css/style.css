@@ -586,10 +586,13 @@ b, strong { font-weight: bold; }
 		font-weight: bold;
 	}
 
-	#header p.site-desc {
+	#header p.site-desc, #header h1.site-desc {
 		color: #ccc;
 		font-size: 12px;
 		line-height: 19px;
+	}
+	#header h2.font-color-primar {
+		font-size: 12px;
 	}
 
 

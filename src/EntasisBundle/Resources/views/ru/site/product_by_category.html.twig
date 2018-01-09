@@ -1,5 +1,13 @@
 {% extends '@Entasis/ru/base.html.twig' %}
 
+{% block title %}
+    {{ category }} | художественное решение жилого пространства, экодизайн, реставрация, декор интерьера
+{% endblock %}
+
+{% block logo_h1 %}
+    {{ category }}
+{% endblock %}
+
 {% block content %}
     {% for product in pagination %}
         <a href="{{ path('view_product', {'id': product.id}) }}" class="permalink">
@@ -8,7 +16,7 @@
                     <img src="{{ product.titleImage }}" alt="Картинка" />
 
                     <h3>{{ product.ruName }}</h3>
-                    <span class="category">product.category.ruName</span>
+                    <span class="category">{{ product.category.ruName }}</span>
                 </div><!-- // .item -->
             </div><!-- // .desktop-6 -->
         </a>

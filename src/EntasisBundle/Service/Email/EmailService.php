@@ -15,7 +15,7 @@ abstract class EmailService
 {
     protected $mailer;
     protected $twig;
-    const EMAIL_BOX = 'kornashevskiy@gmail.com';
+    const EMAIL_BOX = 'entasisby@gmail.com';
 
     public function __construct(\Swift_Mailer $mailer, \Twig_Environment $twig)
     {
